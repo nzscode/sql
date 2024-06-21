@@ -40,28 +40,166 @@
         <main>
             <article>
                 <section>
-                    <h2 class="lvl2" id="">Level 2</h2>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                    </ul>
+                    <h2 class="lvl2" id="basic-sql">Basic SQL</h2>
                     <section>
-                        <h3 class="lvl3" id="">Level 3</h3>
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet.</li>
-                        </ul>
+                        <h3 class="lvl3" id="database">Database</h3>
                         <section>
-                            <h3 class="lvl4 h3-plus">Level 4</h3>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet.</li>
-                            </ul>
-                            <section>
-                                <h3 class="lvl5">Level 5</h3>
-                                <ul>
-                                    <li>Lorem ipsum dolor sit amet.</li>
-                                </ul>
-                            </section>
+                            <h3
+                                class="lvl4"
+                                id="create-use-alter-drop-database"
+                            >
+                                Create | Use/Access | Alter | Drop Database
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>CREATE|USE|ALTER|DROP DATABASE <i>People</i>;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="show-databases">
+                                Show Databases
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>SHOW DATABASES;</code></pre>
+                            </div>
                         </section>
                     </section>
+                    <section>
+                        <h3 class="lvl3" id="table">Table</h3>
+                        <section>
+                            <h3 class="lvl4" id="show-tables">Show Tables</h3>
+                            <div class="mini-code">
+                                <pre><code>SHOW TABLES;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="describe-table">
+                                Get Info about Specific Table
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>DESCRIBE <i>Users</i>;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="createtable">Create Table</h3>
+                            <div class="mini-code">
+                                <pre><code>CREATE <i>Users</i>(
+    id INT,
+    name VARCHAR(64)
+);</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="auto-increment">
+                                Auto Increment Primary/Unique Key
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>CREATE TABLE<i>Users</i>(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(64)
+);</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="foreign-key">
+                                Create Table with Foreign Key
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>CREATE TABLE <i>Users</i>(
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(64),
+    email VARCHAR(64),
+    age INT,
+    likes-cookies BOOL,
+    FOREIGN KEY (student_id)
+        REFERENCES student(id)
+);</code></pre>
+                            </div>
+                        </section>
+                    </section>
+                    <section>
+                        <h3 class="lvl4" id="alter-table">Alter Table</h3>
+                        <section>
+                            <h3 class="lvl5" id="change-table-name">
+                                Changing Table Name
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>ALTER TABLE <i>Users</i> RENAME <i>Students</i>;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl5" id="add-column">
+                                Adding Column to Table
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>ALTER TABLE <i>Users</i>
+ADD COLUMN <i>shoe_size INT</i>;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl5" id="change-column-name">
+                                Change Column Name
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>ALTER TABLE <i>Users</i>
+RENAME COLUMN <i>name</i> TO <i>first_name</i>;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl5" id="chnage-column-data-type">
+                                Change Column Data Type
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>ALTER TABLE <i>Users</i>
+MODIFY COLUMN <i>email VARCHAR(128)</i>;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl5" id="delete-column">
+                                Delete Column
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>ALTER TABLE <i>Users</i>
+DROP COLUMN <i>shoe_size</i>;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="delete-table">
+                                Deleting Table
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>DROP TABLE <i>Users</i>;</code></pre>
+                            </div>
+                        </section>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="data">Data</h3>
+                        <section>
+                            <h3 class="lvl4" id="inserting-data">
+                                Inserting Data
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>INSERT INTO <i>Users</i> VALUES
+(1, 'Jane', 'Jane_l@gmail.com', 35, 'yes'),
+(2, "Rob', 'Rob4567@netflix.net', 19, 'no');</code></pre>
+                            </div>
+
+                            <div class="mini-code">
+                                <b><u>Inserting into a specific column</u></b>
+                                <ul>
+                                    <li>
+                                        Remaining columns are filled with
+                                        default values or NULL
+                                    </li>
+                                </ul>
+                                <pre><code>INSERT INTO Users VALUES
+('Lawrence');</code></pre>
+                            </div>
+                        </section>
+                    </section>
+                    <!--  <section>
+                            <h3 class="lvl4" id=""></h3>
+                            <div class="mini-code"><pre><code><i></i></code></pre></div>                           
+                        </section> -->
                 </section>
             </article>
         </main>

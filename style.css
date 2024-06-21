@@ -584,3 +584,8 @@ h4 {
     font-weight: 600;
     font-style: normal;
 }
+
+.mini-code {
+    width: 75%;
+    margin: auto;
+}
