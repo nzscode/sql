@@ -51,7 +51,7 @@
                                 Create | Use/Access | Alter | Drop Database
                             </h3>
                             <div class="mini-code">
-                                <pre><code>CREATE|USE|ALTER|DROP DATABASE <i>People</i>;</code></pre>
+                                <pre><code>CREATE|USE|ALTER|DROP DATABASE  People ;</code></pre>
                             </div>
                         </section>
                         <section>
@@ -65,6 +65,163 @@
                     </section>
                     <section>
                         <h3 class="lvl3" id="table">Table</h3>
+                        <ul>
+                            <li>Data Types:</li>
+                            <ul>
+                                <li>
+                                    CHAR(size) A FIXED length string (can
+                                    contain letters, numbers, and special
+                                    characters). The size parameter specifies
+                                    the column length in characters - can be
+                                    from 0 to 255. Default is 1
+                                </li>
+                                <li></li>
+                                <li>
+                                    VARCHAR(size) A VARIABLE length string (can
+                                    contain letters, numbers, and special
+                                    characters). The size parameter specifies
+                                    the maximum string length in characters -
+                                    can be from 0 to 65535
+                                </li>
+                                <li>
+                                    TINYTEXT Holds a string with a maximum
+                                    length of 255 characters
+                                </li>
+                                <li>
+                                    TEXT(size) Holds a string with a maximum
+                                    length of 65,535 bytes
+                                </li>
+                                <li>
+                                    LONGTEXT Holds a string with a maximum
+                                    length of 4,294,967,295 characters
+                                </li>
+                                <li>
+                                    ENUM(val1, val2, val3, ...) A string object
+                                    that can have only one value, chosen from a
+                                    list of possible values. You can list up to
+                                    65535 values in an ENUM list. If a value is
+                                    inserted that is not in the list, a blank
+                                    value will be inserted. The values are
+                                    sorted in the order you enter them
+                                </li>
+                                <li>
+                                    SET(val1, val2, val3, ...) A string object
+                                    that can have 0 or more values, chosen from
+                                    a list of possible values. You can list up
+                                    to 64 values in a SET list
+                                </li>
+                            </ul>
+                            <li>Numeric Data Types</li>
+                            <ul>
+                                <li>
+                                    BOOL Zero is considered as false, nonzero
+                                    values are considered as true.
+                                </li>
+                                <li>BOOLEAN Equal to BOOL</li>
+                                <li>
+                                    SMALLINT(size) A small integer. Signed range
+                                    is from -32768 to 32767. Unsigned range is
+                                    from 0 to 65535. The size parameter
+                                    specifies the maximum display width (which
+                                    is 255)
+                                </li>
+                                <li>
+                                    MEDIUMINT(size) A medium integer. Signed
+                                    range is from -8388608 to 8388607. Unsigned
+                                    range is from 0 to 16777215. The size
+                                    parameter specifies the maximum display
+                                    width (which is 255)
+                                </li>
+                                <li>
+                                    INT(size) A medium integer. Signed range is
+                                    from -2147483648 to 2147483647. Unsigned
+                                    range is from 0 to 4294967295. The size
+                                    parameter specifies the maximum display
+                                    width (which is 255)
+                                </li>
+                                <li>
+                                    BIGINT(size) A large integer. Signed range
+                                    is from -9223372036854775808 to
+                                    9223372036854775807. Unsigned range is from
+                                    0 to 18446744073709551615. The size
+                                    parameter specifies the maximum display
+                                    width (which is 255)
+                                </li>
+                                <li>
+                                    FLOAT(size, d) A floating point number. The
+                                    total number of digits is specified in size.
+                                    The number of digits after the decimal point
+                                    is specified in the d parameter. This syntax
+                                    is deprecated in MySQL 8.0.17, and it will
+                                    be removed in future MySQL versions
+                                </li>
+                                <li>
+                                    FLOAT(p) A floating point number. MySQL uses
+                                    the p value to determine whether to use
+                                    FLOAT or DOUBLE for the resulting data type.
+                                    If p is from 0 to 24, the data type becomes
+                                    FLOAT(). If p is from 25 to 53, the data
+                                    type becomes DOUBLE()
+                                </li>
+                                <li>
+                                    DOUBLE(size, d) A normal-size floating point
+                                    number. The total number of digits is
+                                    specified in size. The number of digits
+                                    after the decimal point is specified in the
+                                    d parameter
+                                </li>
+                                <li>
+                                    DECIMAL(size, d) An exact fixed-point
+                                    number. The total number of digits is
+                                    specified in size. The number of digits
+                                    after the decimal point is specified in the
+                                    d parameter. The maximum number for size is
+                                    65. The maximum number for d is 30. The
+                                    default value for size is 10. The default
+                                    value for d is 0.
+                                </li>
+                            </ul>
+                            <li>Date & Time Data Type:</li>
+                            <ul>
+                                <li>
+                                    DATE A date. Format: YYYY-MM-DD. The
+                                    supported range is from '1000-01-01' to
+                                    '9999-12-31'
+                                </li>
+                                <li>
+                                    DATETIME(fsp)- A date and time combination.
+                                    Format: YYYY-MM-DD hh:mm:ss. The supported
+                                    range is from '1000-01-01 00:00:00' to
+                                    '9999-12-31 23:59:59'. Adding DEFAULT and ON
+                                    UPDATE in the column definition to get
+                                    automatic initialization and updating to the
+                                    current date and time
+                                </li>
+                                <li>
+                                    TIMESTAMP(fsp)- A timestamp. TIMESTAMP
+                                    values are stored as the number of seconds
+                                    since the Unix epoch ('1970-01-01 00:00:00'
+                                    UTC). Format: YYYY-MM-DD hh:mm:ss. The
+                                    supported range is from '1970-01-01
+                                    00:00:01' UTC to '2038-01-09 03:14:07' UTC.
+                                    Automatic initialization and updating to the
+                                    current date and time can be specified using
+                                    DEFAULT CURRENT_TIMESTAMP and ON UPDATE
+                                    CURRENT_TIMESTAMP in the column definition
+                                </li>
+                                <li>
+                                    TIME(fsp)- A time. Format: hh:mm:ss. The
+                                    supported range is from '-838:59:59' to
+                                    '838:59:59'
+                                </li>
+                                <li>
+                                    YEAR- A year in four-digit format. Values
+                                    allowed in four-digit format: 1901 to 2155,
+                                    and 0000. MySQL 8.0 does not support year in
+                                    two-digit format.
+                                </li>
+                            </ul>
+                        </ul>
                         <section>
                             <h3 class="lvl4" id="show-tables">Show Tables</h3>
                             <div class="mini-code">
@@ -76,13 +233,13 @@
                                 Get Info about Specific Table
                             </h3>
                             <div class="mini-code">
-                                <pre><code>DESCRIBE <i>Users</i>;</code></pre>
+                                <pre><code>DESCRIBE  Users ;</code></pre>
                             </div>
                         </section>
                         <section>
                             <h3 class="lvl4" id="createtable">Create Table</h3>
                             <div class="mini-code">
-                                <pre><code>CREATE <i>Users</i>(
+                                <pre><code>CREATE  Users (
     id INT,
     name VARCHAR(64)
 );</code></pre>
@@ -93,7 +250,7 @@
                                 Auto Increment Primary/Unique Key
                             </h3>
                             <div class="mini-code">
-                                <pre><code>CREATE TABLE<i>Users</i>(
+                                <pre><code>CREATE TABLE Users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(64)
 );</code></pre>
@@ -104,70 +261,70 @@
                                 Create Table with Foreign Key
                             </h3>
                             <div class="mini-code">
-                                <pre><code>CREATE TABLE <i>Users</i>(
+                                <pre><code>CREATE TABLE  Users (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(64),
     email VARCHAR(64),
     age INT,
     likes-cookies BOOL,
-    FOREIGN KEY (student_id)
+    FOREIGN KEY (class_id)
         REFERENCES student(id)
 );</code></pre>
                             </div>
                         </section>
-                    </section>
-                    <section>
-                        <h3 class="lvl4" id="alter-table">Alter Table</h3>
                         <section>
-                            <h3 class="lvl5" id="change-table-name">
-                                Changing Table Name
-                            </h3>
-                            <div class="mini-code">
-                                <pre><code>ALTER TABLE <i>Users</i> RENAME <i>Students</i>;</code></pre>
-                            </div>
-                        </section>
-                        <section>
-                            <h3 class="lvl5" id="add-column">
-                                Adding Column to Table
-                            </h3>
-                            <div class="mini-code">
-                                <pre><code>ALTER TABLE <i>Users</i>
-ADD COLUMN <i>shoe_size INT</i>;</code></pre>
-                            </div>
-                        </section>
-                        <section>
-                            <h3 class="lvl5" id="change-column-name">
-                                Change Column Name
-                            </h3>
-                            <div class="mini-code">
-                                <pre><code>ALTER TABLE <i>Users</i>
-RENAME COLUMN <i>name</i> TO <i>first_name</i>;</code></pre>
-                            </div>
-                        </section>
-                        <section>
-                            <h3 class="lvl5" id="chnage-column-data-type">
-                                Change Column Data Type
-                            </h3>
-                            <div class="mini-code">
-                                <pre><code>ALTER TABLE <i>Users</i>
-MODIFY COLUMN <i>email VARCHAR(128)</i>;</code></pre>
-                            </div>
-                        </section>
-                        <section>
-                            <h3 class="lvl5" id="delete-column">
-                                Delete Column
-                            </h3>
-                            <div class="mini-code">
-                                <pre><code>ALTER TABLE <i>Users</i>
-DROP COLUMN <i>shoe_size</i>;</code></pre>
-                            </div>
+                            <h3 class="lvl4" id="alter-table">Alter Table</h3>
+                            <section>
+                                <h3 class="lvl5" id="change-table-name">
+                                    Changing Table Name
+                                </h3>
+                                <div class="mini-code">
+                                    <pre><code>ALTER TABLE  Users  RENAME TO Students ;</code></pre>
+                                </div>
+                            </section>
+                            <section>
+                                <h3 class="lvl5" id="add-column">
+                                    Adding Column to Table
+                                </h3>
+                                <div class="mini-code">
+                                    <pre><code>ALTER TABLE  Users 
+ADD COLUMN  shoe_size INT ;</code></pre>
+                                </div>
+                            </section>
+                            <section>
+                                <h3 class="lvl5" id="change-column-name">
+                                    Change Column Name
+                                </h3>
+                                <div class="mini-code">
+                                    <pre><code>ALTER TABLE  Users 
+RENAME COLUMN  name  TO  first_name ;</code></pre>
+                                </div>
+                            </section>
+                            <section>
+                                <h3 class="lvl5" id="chnage-column-data-type">
+                                    Change Column Data Type
+                                </h3>
+                                <div class="mini-code">
+                                    <pre><code>ALTER TABLE  Users 
+MODIFY COLUMN  email VARCHAR(128) ;</code></pre>
+                                </div>
+                            </section>
+                            <section>
+                                <h3 class="lvl5" id="delete-column">
+                                    Delete Column
+                                </h3>
+                                <div class="mini-code">
+                                    <pre><code>ALTER TABLE  Users 
+DROP COLUMN  shoe_size ;</code></pre>
+                                </div>
+                            </section>
                         </section>
                         <section>
                             <h3 class="lvl4" id="delete-table">
                                 Deleting Table
                             </h3>
                             <div class="mini-code">
-                                <pre><code>DROP TABLE <i>Users</i>;</code></pre>
+                                <pre><code>DROP TABLE  Users ;</code></pre>
                             </div>
                         </section>
                     </section>
@@ -178,29 +335,198 @@ DROP COLUMN <i>shoe_size</i>;</code></pre>
                                 Inserting Data
                             </h3>
                             <div class="mini-code">
-                                <pre><code>INSERT INTO <i>Users</i> VALUES
+                                <pre><code>INSERT INTO  Users  VALUES
 (1, 'Jane', 'Jane_l@gmail.com', 35, 'yes'),
 (2, "Rob', 'Rob4567@netflix.net', 19, 'no');</code></pre>
                             </div>
 
                             <div class="mini-code">
-                                <b><u>Inserting into a specific column</u></b>
+                                <b
+                                    ><u
+                                        ><span class="lvl5"
+                                            >Inserting into a specific
+                                            column</span
+                                        ></u
+                                    ></b
+                                >
                                 <ul>
                                     <li>
                                         Remaining columns are filled with
                                         default values or NULL
                                     </li>
                                 </ul>
-                                <pre><code>INSERT INTO Users VALUES
+                                <pre><code>INSERT INTO Users (name) VALUES
 ('Lawrence');</code></pre>
                             </div>
                         </section>
+                        <section>
+                            <h3 class="lvl4" id="update-data">Updating Data</h3>
+                            <div class="mini-code">
+                                <pre><code>UPDATE Users
+SET name = 'Jeremy',
+email = 'JJ_Jeremiah@yahoo.ch'
+WHERE id = 1;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="delete-data">Deleting Data</h3>
+                            <div class="mini-code">
+                                <pre><code>DELETE rom Users
+WHERE id=3;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="delete-all-data">
+                                Deleting All Data
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code>TRUNCATE TABLE Users;</code></pre>
+                            </div>
+                        </section>
+                        <section>
+                            <h3 class="lvl4" id="change-data-type">
+                                Changing Data Type
+                            </h3>
+                            <div class="mini-code">
+                                <pre><code><b><u>Changing a number to a signed Integer</u></b>
+SELECT CAST(35 AS SIGNED);
+
+
+<b><u>To Change a Column Type</u></b>
+SELECT CAST (column AS double);</code></pre>
+                            </div>
+                        </section>
                     </section>
-                    <!--  <section>
-                            <h3 class="lvl4" id=""></h3>
-                            <div class="mini-code"><pre><code><i></i></code></pre></div>                           
-                        </section> -->
                 </section>
+                <section>
+                    <h2 class="lvl2" id="Aggregation-grouping">
+                        Aggregation & Grouping
+                    </h2>
+                    <ul>
+                        <li>
+                            AVG(expr) - average value of expr for the group.
+                        </li>
+                        <li>
+                            COUNT(expr) - count of expr values within the group.
+                        </li>
+                        <li>
+                            MAX(expr) - maximum value of expr values within the
+                            group.
+                        </li>
+                        <li>
+                            MIN(expr) - minimum value of expr values within the
+                            group.
+                        </li>
+                        <li>
+                            SUM(expr) - sum of expr values within the group.
+                        </li>
+                    </ul>
+                    <section>
+                        <h3 class="lvl3" id="count-rows">
+                            Counting Rows in a Table
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT COUNT(*)
+FROM Users;</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="count-non-null-values">
+                            Counting Non-Null Values
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT COUNT(email)
+FROM Users;</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="count-unique-values">
+                            Counting Unique Values in a Column
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT COUNT(DISTINCT email)
+FROM Users;</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="group-by">
+                            Group By distinct Values in a specific column (i.e.
+                            age)
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT age, COUNT(name)
+FROM Users,
+GROUP BY age;
+                        </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="avg-min-max">
+                            Getting the Average, Min & Max
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT id, AVG(age), MIN(age), MAX(age)
+FROM Users
+GROUP BY likes_cookies;</code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <h2 class="lvl2" id="quqry-data">Querying Data</h2>
+                    <section>
+                        <h3 class="lvl3" id="select-all-data">
+                            Selecting All Data
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT * FROM Users;</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="select-particular-row">
+                            Selecting Particular Row
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT * FROM Users
+WHERE age &lt; 15; </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="select-particular-column">
+                            Selecting Particular Column
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code>SELECT name, email FROM Users
+WHERE age &gt; 10;</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="alias">Aliases</h3>
+                        <ul>
+                            <li>
+                                Used as a temp name to a table or column just
+                                for the purpose of a query
+                            </li>
+                        </ul>
+                        <div class="mini-code">
+                            <pre><code>SELECT age, email AS temp_age_email
+FROM Users;</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3 class="lvl3" id="range">
+                            Condition Based on a Range
+                        </h3>
+                        <div class="mini-code">
+                            <pre><code></code></pre>
+                        </div>
+                    </section>
+                </section>
+                <!--  
+                <section>
+                    <h3 class="lvl4" id=""></h3>
+                        <div class="mini-code"><pre><code></code></pre></div>                           
+                    </section> 
+    -->
             </article>
         </main>
         <br /><br /><br /><br />
